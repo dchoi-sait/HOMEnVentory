@@ -1,0 +1,266 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 3, 2021, 10:06:46 PM
+    Author     : 775262
+*/
+html{
+
+font-family: 'Kanit', sans-serif;}
+
+
+body{
+
+
+    margin: 0px;
+    min-height: 100vh;
+}
+.modal-container{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(169,169,169,0.6);
+    z-index: 5;
+
+}
+.modal{
+    position: absolute;
+    background-color: white;
+    border-radius: 30px;
+    border: 1px #e3e3e3 solid;
+    min-width: 326px;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.top-box{
+    border-bottom: 1px #e3e3e3 solid;
+    padding: 24px;
+}
+
+.top-box h2{
+    margin: 0;
+}
+
+.bottom-box{
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    align-items: center;
+    background-color: white;
+}
+
+
+.search-container{
+    padding-right:25px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    max-width: 900px;
+}
+
+.table-container{
+    margin-top: 20px;
+    margin-bottom: 100px;
+    max-width: 900px;
+    border: 2px solid rgb(231, 227, 235);
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    background-color: white;
+    overflow: hidden;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+table{
+    border-collapse: collapse;
+    font-size: 14px;
+    border-radius: 4px;
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+
+}
+
+tr{
+    cursor: pointer;
+    border-bottom: 2px solid rgb(231, 227, 235);
+}
+
+td{
+    font-size: 16px;
+    padding: 24px 8px 24px 0px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color:#493277;
+}
+
+tr:hover{
+    background-color: rgb(238, 234, 244);
+}
+
+th{
+    background-color: rgb(238, 234, 244);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color:#280D5F;
+}
+
+.btn{
+    width: 90%;
+    background-color: #ff9200;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: #ffd079;
+}
+
+
+
+.textbox{
+    width: 100%;
+    padding: 20px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ffffff;
+    border-radius: 14px;
+    box-sizing: border-box;
+    background-color: rgb(238, 234, 244);
+    box-shadow: rgba(74, 74, 104, 0.1) 0px 2px 2px -1px inset;
+}
+
+
+.modal input[type=submit] {
+    font-size: 1rem;
+    width: 100%;
+    background-color: #ff9200;
+    color: white;
+    padding: 18px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+}
+
+.modal input[type=submit]:hover {
+    background-color: #ffd079;
+}
+
+select{
+    width: 100%;
+    padding: 20px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ffffff;
+    border-radius: 14px;
+    box-sizing: border-box;
+    background-color: rgb(238, 234, 244);
+    box-shadow: rgba(74, 74, 104, 0.1) 0px 2px 2px -1px inset;
+    margin-bottom: 30px;
+}
+
+
+.cancel-container{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.add-btn-container{
+    border-radius: 100%;
+    background-color: #ff9200;
+    position: relative;
+    height: 40px;  
+    width: 40px; 
+}
+
+.plus{
+    position: absolute;
+    top: 50%;  
+    left: 50%; 
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    transform: translate(-46%, -53%);
+    cursor: pointer;
+}
+
+.add-form {
+    width: 100%;
+    height: 100%;
+}
+
+.add-btn{
+    padding: 0px;
+    width: 100%;
+    height:100%;
+    border-radius: 50%;
+    /*background-color: #ff9200;*/
+    cursor: pointer;
+    border: none;
+    opacity: 0;
+}
+.add-btn-container:hover{
+    background-color: #ffd079;
+}
+
+
+.cancel{
+    width: auto !important;
+    background-color: white !important;
+    color: #ff9200 !important;
+}
+
+.btn-layout{
+    display: flex;
+    justify-content: center;
+}
+
+ .w40 {
+        width: 40%;
+    }
+
+    .expand{
+        width: 33.3% !important;
+    }
+@media only screen and (max-width: 700px) {
+    .hide{
+        display: none;
+    }
+    
+     .btn-layout {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+   
+
+  
+    .w40 {
+        width: 80%;
+    }
+}

@@ -1,0 +1,196 @@
+.nav-container{
+    display: flex;
+    align-items: center;
+    top: 0px;
+    left: 0px;
+    height: 56px;
+    width: 100%;
+    z-index: 20;
+    border-bottom: 1px #e3e3e3 solid; 
+    justify-content: center;
+    /*background-color: white;*/
+    /*background: rgba(0, 0, 0, 0) linear-gradient(139.73deg, rgb(229, 253, 255) 0%, rgb(243, 239, 255) 100%) repeat scroll 0% 0%;*/
+}
+
+.nav{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    padding: 0 2px;
+}
+
+.nav-left{
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+
+.button{
+    background-color: #ff9200;
+    color: white !important;
+    text-align: center;
+    display: inline-block;
+    border-radius: 30px;
+    border: none;
+    font-size: 1rem;
+    padding: 5px 12px;
+    font-weight: 600;
+}
+
+.button:hover{
+    background-color: #ffd079;
+}
+
+a{
+    color:grey;
+    display: block;
+    transition: linear 0.1s;
+    text-decoration: none;
+}
+
+/*a:link, a:visited {
+    text-decoration: none;
+
+}*/
+
+.nav-menu a:hover{
+    color:#ff9200;
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+}
+
+.nav-right{
+    align-items: center;
+    display: flex;
+    gap: 30px;
+}
+
+.banner{
+    background: rgba(0, 0, 0, 0) linear-gradient(139.73deg, rgb(229, 253, 255) 0%, rgb(243, 239, 255) 100%) repeat scroll 0% 0%;
+    display: flex;
+    justify-content: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    min-height: 200px;
+}
+
+
+.banner-container{
+    width: 900px;
+    display: flex;
+    padding-left: 22px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.banner h1{
+    font-size: 4.3rem;
+    font-weight: 700;
+    margin: 0px;
+    color: #7645D9;
+}
+
+.banner h2{
+    font-weight: 600;
+    margin-top: 0px;
+    font-size: 2rem;
+    color: #FFB237;
+}
+
+.nav-menu{
+    color: #7645d9;
+}
+
+#title{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+
+.nav-seleted{
+    color: #ff9200 !important;
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+}
+
+
+
+.dropbtn {
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    display: none;
+    position: relative;
+    /*display: inline-block;*/
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right:0;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    /*right: 0;*/
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+/*.dropdown:hover .dropdown-content {
+    display: block;
+}*/
+
+
+@media only screen and (max-width: 770px) {
+    #title{
+       font-size: 1rem;
+    }
+
+
+    .dropdown {
+        display: inline-block;
+    }
+
+    .nav-hide{
+        display: none;
+    }
+
+    .button{
+        font-size: 0.8rem;
+    }
+
+    .nav-right{
+        gap:0px;
+    }
+    
+    .banner{
+        min-height: available;
+    }
+
+    .banner h1{
+        font-size: 3rem;
+    }
+
+    .banner h2{
+        font-size: 1.5rem;
+    }
+
+}
