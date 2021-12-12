@@ -65,6 +65,7 @@
                     <div class="nav-menu nav-hide" id="inventory"><a href="inventory" class="nav-seleted">Inventory</a></div>
                     <c:if test="${user.role == 3 || user.role == 1}">
                         <div class="nav-menu nav-hide" id="admin"><a href="admin">Admin</a></div>
+                        <div class="nav-menu nav-hide" id="category"><a href="category">Category</a></div>
                     </c:if>
                 </div>
                 <div class="nav-right">
@@ -78,6 +79,7 @@
                             <a href="inventory" class="nav-seleted">Inventory</a>
                             <c:if test="${user.role == 3 || user.role == 1}">
                                 <a href="admin">Admin</a>
+                                <a href="category">Category</a>
                             </c:if>
                             <a href="account">Account</a>
                             <a href="login">Logout</a>
@@ -148,7 +150,13 @@
                         </tr>    
                         <c:forEach items="${items}" var="item">
                             <tr>
-                                <td>${categories[item.category - 1].category_name}</td>
+                                <td>
+                                    <c:forEach items="${categories}" var="category">
+                                        <c:if test="${category.category_id == item.category}">
+                                            ${category.category_name}
+                                        </c:if>
+                                    </c:forEach>
+                                </td>
                                 <td>${item.item_name}</td>
                                 <td class="hide">$${item.price}</td>
 

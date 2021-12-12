@@ -128,5 +128,21 @@ public class ItemDB {
             cp.freeConnection(con);
         }
     }
+    
+    public void deleteAllFromEmail(String email) throws Exception {
+        ConnectionPool cp = ConnectionPool.getInstance();
+        Connection con = cp.getConnection();
+        PreparedStatement ps = null;
+        String sql = "DELETE FROM item WHERE owner= ?";
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, email);
+            ps.executeUpdate();
+        } finally {
+            DBUtil.closePreparedStatement(ps);
+            cp.freeConnection(con);
+        }
+    }
 
 }

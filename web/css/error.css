@@ -1,0 +1,33 @@
+html{
+    font-family: 'Kanit', sans-serif;
+}
+
+body{
+    display:flex;
+    margin:0px;
+    padding:0px;
+    height:100vh;
+}
+
+.code{
+    width:100%;
+    background: rgba(0, 0, 0, 0) linear-gradient(139.73deg, rgb(229, 253, 255) 0%, rgb(243, 239, 255) 100%) repeat scroll 0% 0%;
+    padding:50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.code h1{
+    font-size: 6rem;
+    color:#7645D9;
+    margin-bottom: 0px;
+    margin-top:0px;
+}
+
+.code h3{
+    font-size: 1.5rem;
+    color:#ff9200;
+    margin: 0px;
+}

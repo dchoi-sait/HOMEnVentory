@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.User;
 import service.AccountService;
 
@@ -40,7 +41,9 @@ public class SignupServlet extends HttpServlet {
             User user = new User(email, active, fname, lname, password, role);
             boolean userAdded = as.insert(user);
             if (userAdded) {
-                getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+                HttpSession session = request.getSession();
+                session.setAttribute("email", email);
+                response.sendRedirect("inventory");
                 return;
             }
         }

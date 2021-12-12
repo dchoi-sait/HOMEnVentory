@@ -21,8 +21,8 @@ body{
     background-color: white;
     border-radius: 30px;
     border: 1px #e3e3e3 solid;
-    min-width: 400px;
-    width: 30%;
+    max-width: 95%;
+    width: 400px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

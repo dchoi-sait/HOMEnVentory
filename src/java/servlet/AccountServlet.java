@@ -45,7 +45,9 @@ public class AccountServlet extends HttpServlet {
         
         if (action.equals("deactivate")) {            
             user.setActive(false);
-            as.updateUser(user);                     
+            as.updateUser(user);
+            response.sendRedirect("login");
+            return;
         }
         
         if (action.equals("updateAccount")) {

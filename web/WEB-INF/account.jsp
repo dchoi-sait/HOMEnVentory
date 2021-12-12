@@ -36,6 +36,7 @@
                     <div class="nav-menu nav-hide" id="inventory"><a href="inventory">Inventory</a></div>
                     <c:if test="${user.role == 3 || user.role == 1}">
                         <div class="nav-menu nav-hide" id="admin"><a href="admin">Admin</a></div>
+                        <div class="nav-menu nav-hide" id="category"><a href="category">Category</a></div>
                     </c:if>
                 </div>
                 <div class="nav-right">
@@ -49,8 +50,9 @@
                             <a href="inventory">Inventory</a>
                             <c:if test="${user.role == 3 || user.role == 1}">
                                 <a href="admin">Admin</a>
+                                <a href="category">Category</a>
                             </c:if>
-                            <a href="account" class="nav-seleted">Account</a>
+                            <a href="account">Account</a>
                             <a href="login">Logout</a>
                         </div>
                     </div>
@@ -60,7 +62,7 @@
 
 
         <div class="banner">
-            <div class="banner-container" style="min-width: 400px; width: 32%;">
+            <div class="banner-container" style="max-width: 95%; width: 500px;">
                 <h1 style="margin-bottom: 2px; margin-top: 0px;">Account</h1>
                 <h2 style="margin-top: 0px;">Manage HOMEnVentory Account</h2>
             </div>

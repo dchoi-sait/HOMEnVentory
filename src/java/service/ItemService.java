@@ -78,6 +78,17 @@ public class ItemService {
         }
     }
     
+    public void deleteAllFromEmail(String email){
+        ItemDB idb = new ItemDB();
+        if(email != null){
+            try {
+                idb.deleteAllFromEmail(email);
+            } catch (Exception ex) {
+                Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
     public void setAttributes(HttpServletRequest request, String email) {
         List<Item> items = getAll(email);
         List<Category> categories = getAll();

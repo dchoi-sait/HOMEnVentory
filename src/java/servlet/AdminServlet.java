@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.User;
 import service.AccountService;
+import service.ItemService;
 
 /**
  *
@@ -38,6 +39,7 @@ public class AdminServlet extends HttpServlet {
         String email = (String) session.getAttribute("email");
         String action = request.getParameter("action");
 
+        ItemService is = new ItemService();
         AccountService as = new AccountService();
         User adminUser = as.getUser(email);
         request.setAttribute("user", adminUser);
@@ -116,6 +118,7 @@ public class AdminServlet extends HttpServlet {
         if (action.equals("user-delete")) {
             String deleteEmail = request.getParameter("userEditEmail");
             if (deleteEmail != null) {
+                is.deleteAllFromEmail(deleteEmail);
                 as.deleteUser(deleteEmail);
             }
         }

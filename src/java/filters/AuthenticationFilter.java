@@ -15,6 +15,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.User;
+import service.AccountService;
 
 /**
  *
@@ -28,13 +30,25 @@ public class AuthenticationFilter implements Filter {
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpSession session = httpRequest.getSession();
-
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         String email = (String) session.getAttribute("email");
+        AccountService as = new AccountService();
         if (email == null) {
             httpResponse.sendRedirect("login");
             return;
         }
+
+        User user = as.getUser(email);
+        if (user == null) {
+            httpResponse.sendRedirect("login");
+            return;
+        }
+
+        if (!user.isActive()) {
+            httpResponse.sendRedirect("login");
+            return;
+        }
+
         //This will either call upon the next filter in the chain,
         //or it will load the requested servlet
         chain.doFilter(request, response);

@@ -1,11 +1,11 @@
 html{
-font-family: 'Kanit', sans-serif;    
+    font-family: 'Kanit', sans-serif;    
 }
 
 body{
     margin: 0px;
     max-height: 100vh;
-    
+
 }
 
 
@@ -28,14 +28,14 @@ h3{
 
 
 .signup-container {
-	box-shadow: 0 0 20px rgba(0,0,0,0.1);
-	margin-top: 50px;
-	background-color: white;
-	border-radius: 30px;
-	border: 1px #e3e3e3 solid;
-	min-width: 400px;
-	width: 35%;
-        margin-bottom: 100px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 30px;
+    border: 1px #e3e3e3 solid;
+    max-width: 95%;
+    width: 500px;
+    margin-bottom: 100px;
 }
 
 .top-box{
@@ -73,9 +73,9 @@ h3{
 }
 
 .sp-confirm {
-	display: flex;	
-	justify-content: space-between;
-	align-items: center;
+    display: flex;	
+    justify-content: space-between;
+    align-items: center;
 }
 
 .submitbtn {
@@ -107,3 +107,10 @@ h3{
     color: #ff9200;
     cursor:pointer;
 }
+
+/*@media only screen and (max-width: 500px) {
+    .signup-container{
+        margin-top: 50px;
+        width: 95%;
+    }
+}*/

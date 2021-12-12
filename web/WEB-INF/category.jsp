@@ -32,40 +32,21 @@
             <div class="modal-container">
                 <div class="modal">
                     <div class="top-box">
-                        <h2>${useradd ? "Add User" : "Edit User"}</h2>
+                        <h2>${cateadd ? "Add Category" : "Edit Category"}</h2>
                     </div>
 
                     <div class="bottom-box">
-                        <form method="POST" action="admin">
-                            <div class="name-box" style="display: flex; justify-content: space-between;">
-                                <div class="w50">
-                                    <label>First name: </label><br>
-                                    <input class="textbox" type="text" name="admin-edit-fname" value="${edit_user.first_name}" required><br>
-                                </div>
-                                <div class="w50">
-                                    <label>Last name: </label><br>
-                                    <input class="textbox" type="text" name="admin-edit-lname" value="${edit_user.last_name}" required><br>
-                                </div>
-                            </div>
-                            <label>Email: </label><br>
-                            <input class="textbox" type="text" name="admin-edit-email" value="${edit_user.email}" ${useradd ? '' : "readonly"} required><br>
-                            <label>Password: </label><br>
-                            <input  class="textbox" type="password" name="admin-edit-password" value="${edit_user.password}" required><br>
+                        <form method="POST" action="category">
+
+                            <label>Category Name: </label><br>
+                            <input class="textbox" type="text" name="cate-edit-name" value="${edit_cate.category_name}" required><br>
 
 
-                            <label>Role: </label> 
-                            <select name="role-option">
-                                <c:forEach items="${roles}" var="role">
-                                    <option value="${role.role_id}" ${edit_user.role == role.role_id? "selected" : ''}>${role.role_name}</option>
-                                </c:forEach>    
-                            </select><br>
-                            <label for="isActive">Active </label> 
-                            <input style="margin-bottom: 20px;" id="isActive" type="checkbox" name="admin-edit-isActive" value="acitve" ${useradd ? 'checked = "true"' : ''} ${edit_user.active ? 'checked = "true"' : '' } ${user.role == 1 ? '' : 'disabled'}><br>
                             <input type="submit" value="save">
-                            <input type="hidden" name="action" value=${useradd ? "user-add-save" : "user-edit-save"}>
-                            <input type="hidden" name="editUser" value="${edit_user.email}">
+                            <input type="hidden" name="action" value=${cateadd ? "cate-add-save" : "cate-edit-save"}>
+                            <input type="hidden" name="editCate" value="${edit_cate.category_id}">
                         </form>
-                        <form class="cancel-container" method="POST" action="admin">
+                        <form class="cancel-container" method="POST" action="category">
                             <input class="cancel" type="submit" value="cancel">
                             <input type="hidden" name="action" value="cancel-edit">
                         </form>
@@ -84,8 +65,8 @@
                     <div class="nav-menu" id="title">HOME<span style="color: #ff9200">n</span>Ventory</div>
                     <div class="nav-menu nav-hide" id="inventory"><a href="inventory">Inventory</a></div>
                     <c:if test="${user.role == 3 || user.role == 1}">
-                        <div class="nav-menu nav-hide" id="admin"><a href="admin" class="nav-seleted">Admin</a></div>
-                         <div class="nav-menu nav-hide" id="category"><a href="category">Category</a></div>
+                        <div class="nav-menu nav-hide" id="admin"><a href="admin">Admin</a></div>
+                        <div class="nav-menu nav-hide" id="category"><a href="category" class="nav-seleted">Category</a></div>
                     </c:if>
                 </div>
                 <div class="nav-right">
@@ -113,7 +94,7 @@
         <div class="banner">
             <div class="banner-container">
                 <h1>Administrator</h1>
-                <h2>Manage Users</h2>
+                <h2>Manage Categories</h2>
             </div>
         </div>
         <div class="container">
@@ -122,9 +103,9 @@
                 <div class="add-container">
                     <div class="add-btn-container">
                         <span class="plus">+</span>
-                        <form class="add-form" method="POST" action="admin">
+                        <form class="add-form" method="POST" action="category">
                             <input class="add-btn" type="submit" value=""/>
-                            <input type="hidden" name="action" value="user-add-modal">
+                            <input type="hidden" name="action" value="cate-add-modal">
                         </form>
                     </div>
                 </div>
@@ -137,35 +118,29 @@
             <div class="table-container">
                 <table>  
                     <colgroup>
-                        <col style="width:30%">
-                        <col class ="hide" style="width:15%">
-                        <col class ="hide" style="width:15%">                                       
-                        <col style="width:30%">
+                        <col style="width:50%">                                      
+                        <col style="width:50%">
                     </colgroup> 
 
                     <tr>
-                        <th>Email</th>
-                        <th class ="hide">First name</th>
-                        <th class ="hide">Last name</th>                                      
+                        <th>Category</th>                                 
                         <th>Edit</th>
                     </tr>    
-                    <c:forEach items="${users}" var="user">
+                    <c:forEach items="${categories}" var="category">
                         <tr>
-                            <td>${user.email}</td>
-                            <td class ="hide">${user.first_name}</td>
-                            <td class ="hide">${user.last_name}</td>                                                                                  
+                            <td>${category.category_name}</td>                                                                                                      
                             <td class="btn-layout">
-                                <form class="w40" method="POST" action="admin">
+                                <form class="w40" method="POST" action="category">
                                     <input class="btn" type="submit" value="Edit">
-                                    <input  type="hidden" name="action" value="user-edit-modal">
-                                    <input type="hidden" name="userEditEmail" value="${user.email}">
+                                    <input  type="hidden" name="action" value="cate-edit-modal">
+                                    <input type="hidden" name="cateEditId" value="${category.category_id}">
                                 </form>
 
 
-                                <form class="w40" method="POST" action="admin">
+                                <form class="w40" method="POST" action="category">
                                     <input class="btn" type="submit" value="Delete">
-                                    <input type="hidden" name="action" value="user-delete">
-                                    <input type="hidden" name="userEditEmail" value="${user.email}">
+                                    <input type="hidden" name="action" value="cate-delete">
+                                    <input type="hidden" name="cateEditId" value="${category.category_id}">
                                 </form>
                             </td>
                         </tr>

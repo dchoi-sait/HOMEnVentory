@@ -37,7 +37,7 @@ public class AdminFilter implements Filter {
         AccountService as = new AccountService();
         int roleID = as.userRoleID(email);
 
-        if (roleID != 1 || roleID != 3) {
+        if (roleID != 1 && roleID != 3) {
             httpResponse.sendRedirect("inventory");
             return;
         }
