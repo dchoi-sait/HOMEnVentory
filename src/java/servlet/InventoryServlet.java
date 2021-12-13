@@ -68,7 +68,7 @@ public class InventoryServlet extends HttpServlet {
                 item.setCategory(Integer.parseInt(category));
                 item.setPrice(Double.parseDouble(price));
                 item.setItem_name(item_name);
-                is.editItem(item);
+                is.editItem(item, email);
             } else {
                 request.setAttribute("modal", true);
                 request.setAttribute("message", "Invalid, Please Try Again");

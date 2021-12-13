@@ -14,13 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 import model.Category;
 import model.Item;
 
-
 /**
  *
  * @author 775262
  */
 public class ItemService {
-    
+
     public List<Item> getAll(String email) {
         try {
             return new ItemDB().getAll(email);
@@ -30,7 +29,7 @@ public class ItemService {
         }
 
     }
-    
+
     public List<Category> getAll() {
         try {
             return new CategoryDB().getAll();
@@ -39,8 +38,8 @@ public class ItemService {
             return null;
         }
     }
-    
-    public Item itemGet(int item_id){
+
+    public Item itemGet(int item_id) {
         try {
             return new ItemDB().get(item_id);
         } catch (Exception ex) {
@@ -48,7 +47,7 @@ public class ItemService {
             return null;
         }
     }
-    
+
     public void addItem(Item item) {
         ItemDB idb = new ItemDB();
         try {
@@ -57,15 +56,17 @@ public class ItemService {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void editItem(Item item){
+
+    public void editItem(Item item, String email) {
         try {
-            new ItemDB().update(item);
+            if (email.equals(item.getOwner())) {
+                new ItemDB().update(item);
+            }
         } catch (Exception ex) {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public void delete(int itemID, String email) {
         ItemDB idb = new ItemDB();
         try {
@@ -77,10 +78,10 @@ public class ItemService {
             Logger.getLogger(ItemService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void deleteAllFromEmail(String email){
+
+    public void deleteAllFromEmail(String email) {
         ItemDB idb = new ItemDB();
-        if(email != null){
+        if (email != null) {
             try {
                 idb.deleteAllFromEmail(email);
             } catch (Exception ex) {
@@ -88,7 +89,7 @@ public class ItemService {
             }
         }
     }
-    
+
     public void setAttributes(HttpServletRequest request, String email) {
         List<Item> items = getAll(email);
         List<Category> categories = getAll();
