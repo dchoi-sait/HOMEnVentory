@@ -118,8 +118,8 @@
             <div class="table-container">
                 <table>  
                     <colgroup>
-                        <col style="width:50%">                                      
-                        <col style="width:50%">
+                        <col style="width:70%">                                      
+                        <col style="width:30%">
                     </colgroup> 
 
                     <tr>
@@ -129,7 +129,7 @@
                     <c:forEach items="${categories}" var="category">
                         <tr>
                             <td>${category.category_name}</td>                                                                                                      
-                            <td class="btn-layout">
+                            <td class="btn-layout" style="justify-content: center;">
                                 <form class="w40" method="POST" action="category">
                                     <input class="btn" type="submit" value="Edit">
                                     <input  type="hidden" name="action" value="cate-edit-modal">
@@ -137,11 +137,11 @@
                                 </form>
 
 
-                                <form class="w40" method="POST" action="category">
+<!--                                <form class="w40" method="POST" action="category">
                                     <input class="btn" type="submit" value="Delete">
                                     <input type="hidden" name="action" value="cate-delete">
                                     <input type="hidden" name="cateEditId" value="${category.category_id}">
-                                </form>
+                                </form>-->
                             </td>
                         </tr>
                     </c:forEach>
